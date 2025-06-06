@@ -1,0 +1,21 @@
+sort1 uses: Bubble Sort
+
+How do you know?: 'sort1' is the slowest sorting algorithm in the worst-case scenario among all three sorting algorithms. However, it is one of the fastest algorithms in the best-case scenario.
+random 50k: 6.215s
+reversed 50k: 5.673s
+sorted 50k: 1.326s
+
+sort2 uses: Merge Sort
+
+How do you know?: Among the three sorting algorithms, 'sort2' is the fastest and maintains consistency in all scenarios.
+random 50k: 1.062s
+reversed 50k: 1.123s
+sorted 50k: 1.187s
+
+sort3 uses: Selection Sort
+
+How do you know?: 'sort3' performs faster than 'sort1' in the worst-case scenario, but it is still slower than 'sort2'.
+random 50k: 3.010s
+reversed 50k: 3.030s
+sorted 50k: 3.054s
+

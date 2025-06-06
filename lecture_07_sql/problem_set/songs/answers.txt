@@ -1,0 +1,3 @@
+1. I would choose the orange and blue colors for the audio aura. Since the average danceability and energy were high, exceeding 60%, orange would represent the energy and bold sound of danceable songs. Blue, on the other hand, would represent the average 40% valence, which signifies emotional songs.
+
+2. I would calculate the popularity of songs by rating and the number of streams each song has, rather than just relying on plays. Then, I would recalculate the average of the danceability, energy, and valence to determine the aura of the most popular songs.

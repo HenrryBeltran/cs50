@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+    <title>Trivia!</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        validateAnswerOne(".correct", "#c9ff8d", "Correct!");
+        validateAnswerOne(".incorrect", "#ff7577", "Incorrect");
+        validateAnswerTwo();
+      });
+
+      function validateAnswerOne(selector, color, feedback) {
+        const answers = document.querySelectorAll(selector);
+        const feedbackElement = document.querySelector("#feedback-one");
+
+        const answersLen = answers.length;
+        for (let i = 0; i < answersLen; i++) {
+          answers[i].addEventListener("click", () => {
+            answers[i].style.backgroundColor = color;
+            feedbackElement.innerText = feedback;
+          });
+        }
+      }
+
+      function validateAnswerTwo(correctAnswer) {
+        const check = document.querySelector("#check");
+        const input = document.querySelector("input");
+        const feedbackElement = document.querySelector("#feedback-two");
+
+        check.addEventListener("click", () => {
+          if (input.value === "Australia") {
+            input.style.backgroundColor = "#c9ff8d";
+            feedbackElement.innerText = "Correct!";
+            return;
+          }
+          input.style.backgroundColor = "#ff7577";
+          feedbackElement.innerText = "Incorrect";
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+      <div class="section">
+        <h2 class="font-garamond">Part 1: Multiple Choice</h2>
+        <hr />
+        <h3 class="font-garamond">
+          What do the letters in the GMT time zone stand for?
+        </h3>
+        <button class="incorrect">Global Meridian Time</button>
+        <button class="incorrect">General Median Time</button>
+        <button id="correct-one" class="correct">Greenwich Mean Time</button>
+        <button class="incorrect">Glasgow Man Time</button>
+        <p id="feedback-one"></p>
+      </div>
+
+      <div class="section">
+        <h2 class="font-garamond">Part 2: Free Response</h2>
+        <hr />
+        <h3 class="font-garamond">
+          What is the only country in the world that is also a continent?
+        </h3>
+        <input type="text" />
+        <button id="check">Check Answer</button>
+        <p id="feedback-two"></p>
+      </div>
+    </div>
+  </body>
+</html>
