@@ -385,25 +385,32 @@ section.test {
   align-items: center;
 }
 
-#counter {
-  margin: 0 0 1em 0;
-  font-family: "Roboto Mono", monospace;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
+#typing-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  pointer-events: none;
+  opacity: 0;
 }
 
-/* .words-container { */
-/*   position: relative; */
-/* } */
+#counter {
+  margin: 0 0 1em 0;
+  padding: 0 0.5em;
+  width: 80vw;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  text-align: start;
+}
 
 #caret {
   position: absolute;
   top: 0px;
   left: -2px;
-  width: 3px;
-  height: 44px;
+  width: 2.5px;
+  height: 38px;
   border-radius: 9999px;
   background-color: var(--color-sky-400);
   opacity: 0;
@@ -412,10 +419,11 @@ section.test {
 
 #caret.focus {
   animation: blink 1.2s linear infinite;
-  opacity: 1;
+  opacity: 2.5;
 }
 
 #caret.typing {
+  transition: transform 0.11s ease-in-out;
   animation: 0;
   opacity: 1;
 }
@@ -426,23 +434,33 @@ section.test {
   }
 }
 
+.words-container {
+  border: 1px solid darkgray;
+  position: relative;
+  width: 80vw;
+  height: calc(126px + 4px);
+  /* overflow: hidden; */
+}
+
 .words {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
   display: flex;
   justify-content: start;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 80vw;
 }
 
 word {
-  /* border: 1px solid black; */
   padding: 0em 0.5em;
 }
 
 letter {
-  /* border: 1px solid skyblue; */
   font-family: "Roboto Mono", monospace;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: oklch(var(--color-neutral-600-values) / 0.5);
 }
 
@@ -452,6 +470,28 @@ letter.typed {
 
 letter.wrong {
   color: var(--color-red-500);
+}
+
+button#restart-test {
+  margin: 3em 0 0 0;
+  padding: 0.75em 1em;
+  border-radius: 0.75em;
+  /* border: 1px solid #000; */
+  border: none;
+  background-color: transparent;
+  color: oklch(var(--color-neutral-600-values) / 0.5);
+}
+
+button#restart-test:hover {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-800);
+}
+
+button#restart-test:focus {
+  outline-offset: 4px;
+  outline: 2px solid;
+  outline-color: var(--color-neutral-800);
+  color: var(--color-neutral-800);
 }
 
 /* FOOTER */
